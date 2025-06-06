@@ -4,7 +4,7 @@ pipeline {
     }
     environment{
         CONTAINER_NAME="httpd-${env.BRANCH_NAME}"
-        PORT="${env.BRANCH_NAME == 2025-q1 ? '80' : env.BRANCH_NAME == 2025-q2 ? '90' : 91 }"
+        PORT="${env.BRANCH_NAME == "2025-q1" ? '80' : env.BRANCH_NAME == "2025-q2" ? '90' : 91 }"
     }
     stages{  
         stage('checkout'){
