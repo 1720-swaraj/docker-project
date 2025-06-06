@@ -15,17 +15,21 @@ pipeline {
                 sh 'pwd'
             }
         }
-        // stage('build'){
-        //     steps{
-        //         script{
-        //             // docker run
-        //             sh '''
-        //             docker run -itdp \$PORT:80 --name \$CONTAINER_NAME httpd
-        //             docker mv \$WORKSPACE/index.html 
-        //             '''
-        //         }
-        //     }
-        // }
+        stage('build'){
+            steps{
+                script{
+                    //copy index.html into another folder
+                    sh 'mkdir -p website'
+                    sh 'cp index.html website/'
+                    // docker run
+                    sh '''
+                    docker run -itdp \$PORT:80 --name \$CONTAINER_NAME \ 
+                    -p \$WORKSPACE/website://usr/local/apache2/htdocs/ \
+                    httpd 
+                    '''
+                }
+            }
+        }
     }
 }
 
