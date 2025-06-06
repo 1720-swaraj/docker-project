@@ -23,9 +23,8 @@ pipeline {
                     sh 'cp index.html website/'
                     // docker run
                     sh '''
-                    docker run -itdp \$PORT:80 --name \$CONTAINER_NAME \ 
-                    -p \$WORKSPACE/website://usr/local/apache2/htdocs/ \
-                    httpd 
+                    docker run -itdp \$PORT:80 --name \$CONTAINER_NAME -p \$WORKSPACE/website://usr/local/apache2/htdocs/ httpd 
+                    
                     '''
                 }
             }
