@@ -12,6 +12,7 @@ pipeline {
                 cleanWs()
                 checkout scm
                 sh 'ls -lrta'
+                sh 'pwd'
             }
         }
         // stage('build'){
@@ -20,7 +21,7 @@ pipeline {
         //             // docker run
         //             sh '''
         //             docker run -itdp \$PORT:80 --name \$CONTAINER_NAME httpd
-        //             docker mv 
+        //             docker mv \$WORKSPACE/index.html 
         //             '''
         //         }
         //     }
