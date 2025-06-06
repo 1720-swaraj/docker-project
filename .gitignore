@@ -1,2 +1,2 @@
-merge_master.sh
-gitadd_gitcommit.sh
+
+*.sh*
