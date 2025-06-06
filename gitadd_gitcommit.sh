@@ -7,6 +7,7 @@ for branch in "${branches[@]}";do
     git checkout $branch
     git add *
     git commit -m "$branch added"
+    git push origin $branch
 done
 
     git checkout master
