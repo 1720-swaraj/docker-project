@@ -8,6 +8,7 @@ pipeline {
         stage('checkout'){
             steps{
                 checkout scm
+                sh 'ls -lrta'
             }
         }
         // stage('build'){
